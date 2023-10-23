@@ -1,5 +1,6 @@
 import React from "react";
 import foodBG from "../assets/images/foodBg.png";
+import { Button } from "../components/Button";
 
 export const Banner = () => {
   const bannerStyle = {
@@ -20,9 +21,7 @@ export const Banner = () => {
           welcoming, culinary haven.
         </p>
         <div className="flex justify-center">
-          <button className="text-white text-medium text-sm bg-orange-400 hover:bg-orange-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full px-8 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover-bg-blue-700 dark:focus:ring-blue-800">
-            Explore Menu
-          </button>
+          <Button type="button" text="Explore Stores" />
         </div>
       </div>
     </div>
