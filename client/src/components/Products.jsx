@@ -1,5 +1,6 @@
 import React from "react";
 import { CardProducts } from "./CardProducts";
+import { SearchBar } from "./SearchBar";
 
 export const products = [
   {
@@ -61,6 +62,10 @@ export const products = [
 export const Products = () => {
   return (
     <>
+      <SearchBar
+        placeholder="Search for your trusted store..."
+        title="Products in "
+      />
       <div className="text-center p-10">
         <h1 className="font-bold text-4xl mb-4">Fast and Delicious Food</h1>
         <h1 className="text-3xl">We have got everything here.</h1>
