@@ -1,6 +1,6 @@
 import React from "react";
 
-export const SearchBar = ({ placeholder, title }) => {
+export const SearchBar = ({ placeholder, title, subtitle }) => {
   return (
     <div className="dark:bg-gray-800">
       <div className="dark:bg-transparent">
@@ -14,7 +14,7 @@ export const SearchBar = ({ placeholder, title }) => {
               !
             </h1>
             <p className="mt-5 sm:mt-10 lg:w-10/12 text-gray-600 dark:text-gray-300 font-normal text-center text-xl">
-              The place that can satisfy your crave.
+              {subtitle}
             </p>
           </div>
           <div className="flex w-11/12 md:w-8/12 xl:w-6/12">

@@ -63,6 +63,7 @@ export const StorePage = () => {
       <SearchBar
         placeholder="Search for your trusted store..."
         title="Just Relax, Let "
+        subtitle="The place that can satisfy your crave."
       />
       <div className="pt-4">
         <div className="container mx-auto px-4">
