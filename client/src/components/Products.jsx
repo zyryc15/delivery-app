@@ -62,12 +62,12 @@ export const products = [
 export const Products = () => {
   return (
     <>
-      <SearchBar placeholder="Search your needs..." title="Products in " />
-      <div className="text-center p-10">
-        <h1 className="font-bold text-4xl mb-4">Fast and Delicious Food</h1>
-        <h1 className="text-3xl">We have got everything here.</h1>
+      <SearchBar placeholder="Search your needs..." />
+      <div className="text-center p-2">
+        {/* <h1 className="font-bold text-4xl mb-4">Fast and Delicious Food</h1>
+        <h1 className="text-3xl">We have got everything here.</h1> */}
       </div>
-      <section className="w-fit mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5">
+      <section className="w-fit mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-8 mb-5">
         {products.map((product, index) => (
           <CardProducts key={index} product={product} />
         ))}

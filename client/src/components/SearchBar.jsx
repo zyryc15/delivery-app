@@ -7,11 +7,11 @@ export const SearchBar = ({ placeholder, title, subtitle }) => {
         <div className="mx-auto flex flex-col items-center py-4 sm:py-8">
           <div className="w-11/12 sm:w-2/3 lg:flex justify-center items-center flex-col mb-5 sm:mb-10">
             <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-5xl xl:text-6xl text-center text-gray-800 dark:text-white font-black leading-10">
-              {title}{" "}
-              <span className="text-orange-500 dark:text-violet-500">
-                FJ GOO
-              </span>
-              !
+              {title && (
+                <span className="text-orange-500 dark:text-violet-500">
+                  FJ GOO
+                </span>
+              )}
             </h1>
             <p className="mt-5 sm:mt-10 lg:w-10/12 text-gray-600 dark:text-gray-300 font-normal text-center text-xl">
               {subtitle}
