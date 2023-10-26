@@ -1,6 +1,6 @@
-import { CardProducts } from "../components/CardProducts";
-import { products } from "../components/Products";
-import { Button } from "../components/Button";
+import { CardProducts } from "../../components/CardProducts";
+import { products } from "../../components/Products";
+import { Button } from "../../components/Button";
 export const StoreProfile = () => {
   return (
     <>

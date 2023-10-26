@@ -1,5 +1,5 @@
-import { CardStore } from "../components/CardStore";
-import { SearchBar } from "../components/SearchBar";
+import { CardStore } from "../../components/CardStore";
+import { SearchBar } from "../../components/SearchBar";
 
 const stores = [
   {
