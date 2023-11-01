@@ -6,7 +6,9 @@ import { Footer } from "./components/Footer";
 import { ProductDetails } from "./components/ProductDetails";
 import { StorePage } from "./pages/client/StorePage";
 import { StoreProfile } from "./pages/client/StoreProfile";
-import { Category } from "./pages/admin/Category";
+import { CreateCategory } from "./pages/admin/CreateCategory";
+import { Categories } from "./pages/admin/Categories";
+import { EditCategory } from "./pages/admin/EditCategory";
 
 function App() {
   return (
@@ -15,7 +17,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/menu" element={<MainMenu />} />
-        <Route path="/categories/create" element={<Category />} />
+        <Route path="/category/create" element={<CreateCategory />} />
+        <Route path="/category/:id" element={<EditCategory />} />
+        <Route path="/categories" element={<Categories />} />
         <Route path="/stores" element={<StorePage />} />
         <Route path="/store-profile" element={<StoreProfile />} />
         <Route path="/product-details" element={<ProductDetails />} />

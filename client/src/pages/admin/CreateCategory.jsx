@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-export const Category = () => {
+export const CreateCategory = () => {
   const [file, setFile] = useState(null);
   const [image, setImage] = useState(null);
   const [categoryTitle, setCategoryTitle] = useState("");
+  const navigate = useNavigate();
 
   const uploadImage = () => {
     if (file) {
@@ -34,12 +36,32 @@ export const Category = () => {
 
   const handleSaveCategory = (e) => {
     e.preventDefault();
-    // console.log(categoryTitle);
+    // console.log("Title:" + categoryTitle);
+    // console.log("image:" + image.url);
+    const categoryData = {
+      title: categoryTitle,
+      image,
+    };
+
+    axios
+      .post("http://localhost:8000/api/category/create", categoryData)
+      .then(() => {
+        console.log("Category has been added.");
+        navigate("/categories");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
-    <div className="flex items-center justify-center">
-      <div className="mx-auto w-full max-w-[550px] bg-white">
+    <div className="flex flex-col items-center justify-center">
+      <div>
+        <h1 className="text-xl font-semibold text-[#07074D] my-4 pt-4">
+          Create Category
+        </h1>
+      </div>
+      <div className="mx-auto w-full max-w-[550px] rounded-lg bg-white border border-solid border-slate-200 mb-4">
         <form className="py-4 px-9">
           <div className="mb-5">
             <label
@@ -54,6 +76,7 @@ export const Category = () => {
               id="title"
               placeholder="Category name..."
               className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-orange-500 focus:shadow-md"
+              value={categoryTitle}
               onChange={(e) => setCategoryTitle(e.target.value)}
             />
           </div>
@@ -61,7 +84,7 @@ export const Category = () => {
           {/* upload picture */}
           <div className="mb-6 pt-4">
             <span className="mb-5 block text-xl font-semibold text-[#07074D]">
-              Upload File
+              Upload Image
             </span>
 
             <div className="mb-8">
