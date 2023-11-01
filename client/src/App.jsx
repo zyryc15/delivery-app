@@ -9,6 +9,7 @@ import { StoreProfile } from "./pages/client/StoreProfile";
 import { CreateCategory } from "./pages/admin/CreateCategory";
 import { Categories } from "./pages/admin/Categories";
 import { EditCategory } from "./pages/admin/EditCategory";
+import { DeleteCategory } from "./pages/admin/DeleteCategory";
 
 function App() {
   return (
@@ -18,7 +19,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/menu" element={<MainMenu />} />
         <Route path="/category/create" element={<CreateCategory />} />
-        <Route path="/category/:id" element={<EditCategory />} />
+        <Route path="/categories/edit/:id" element={<EditCategory />} />
+        <Route path="/categories/delete/:id" element={<DeleteCategory />} />
         <Route path="/categories" element={<Categories />} />
         <Route path="/stores" element={<StorePage />} />
         <Route path="/store-profile" element={<StoreProfile />} />

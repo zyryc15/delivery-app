@@ -19,13 +19,13 @@ export const CardCategoryRow = ({ category }) => {
         </div>
         <div className="w-1/2 flex justify-center gap-6 items-center px-6 py-4">
           <Link
-            to={`/category/${category._id}`}
+            to={`/categories/edit/${category._id}`}
             className="font-medium text-red-600 hover:underline dark:text-red-500"
           >
             Edit
           </Link>
           <Link
-            to={`/category/${category._id}`}
+            to={`/categories/delete/${category._id}`}
             href="#"
             className="font-medium text-red-600 hover:underline dark:text-red-500"
           >
