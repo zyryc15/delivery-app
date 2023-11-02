@@ -9,7 +9,7 @@ export const CardStore = ({ store }) => {
         <div className="relative overflow-hidden">
           <img
             className="h-80 w-100 object-cover rounded-t-xl"
-            src={store.image}
+            src={store.image?.url}
             alt="Product"
           />
           <div className="absolute inset-0 bg-black opacity-40"></div>
@@ -20,11 +20,9 @@ export const CardStore = ({ store }) => {
           </div>
         </div>
         <h3 className="text-xl font-bold text-gray-900 mt-4">{store.name}</h3>
-        <p className="text-gray-500 text-sm mt-2">{store.description}</p>
+        <p className="text-gray-500 text-sm mt-2">{store.address}</p>
         <div className="flex items-center justify-between mt-4">
-          <span className="text-gray-900 font-bold text-lg">
-            Time: {store.preparationTime}
-          </span>
+          <span className="text-gray-900 font-bold text-lg">{store.phone}</span>
           <Button text="Open" />
         </div>
       </div>

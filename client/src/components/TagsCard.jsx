@@ -23,7 +23,7 @@ export const TagsCard = ({ tagList }) => {
             Edit
           </Link>
           <Link
-            to={`/categories/delete/`}
+            to={`/tags/delete/${tagList._id}`}
             className="font-medium text-red-600 hover:underline dark:text-red-500"
           >
             Delete

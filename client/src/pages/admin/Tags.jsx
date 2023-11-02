@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { TagsCard } from "../../components/TagsCard";
 import axios from "axios";
 import { Link } from "react-router-dom";
 export const Tags = () => {
   const [tagLists, setTagLists] = useState([]);
-  useState(() => {
+  useEffect(() => {
     axios
       .get("http://localhost:8000/api/tags")
       .then((response) => {

@@ -13,6 +13,11 @@ import { DeleteCategory } from "./pages/admin/DeleteCategory";
 import { Tags } from "./pages/admin/Tags";
 import { CreateTags } from "./pages/admin/CreateTags";
 import { EditTags } from "./pages/admin/EditTags";
+import { DeleteTags } from "./pages/admin/DeleteTags";
+import { CreateStore } from "./pages/admin/CreateStore";
+import { Store } from "./pages/admin/Store";
+import { EditStore } from "./pages/admin/EditStore";
+import { DeleteStore } from "./pages/admin/DeleteStore";
 
 function App() {
   return (
@@ -21,9 +26,14 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/menu" element={<MainMenu />} />
-        <Route path="/stores" element={<StorePage />} />
         <Route path="/store-profile" element={<StoreProfile />} />
         <Route path="/product-details" element={<ProductDetails />} />
+        <Route path="/stores" element={<StorePage />} />
+
+        <Route path="/storelist" element={<Store />} />
+        <Route path="/stores/create" element={<CreateStore />} />
+        <Route path="/stores/edit/:id" element={<EditStore />} />
+        <Route path="/stores/delete/:id" element={<DeleteStore />} />
 
         <Route path="/category/create" element={<CreateCategory />} />
         <Route path="/categories/edit/:id" element={<EditCategory />} />
@@ -33,6 +43,7 @@ function App() {
         <Route path="/tags" element={<Tags />} />
         <Route path="/tag/create" element={<CreateTags />} />
         <Route path="/tags/edit/:id" element={<EditTags />} />
+        <Route path="/tags/delete/:id" element={<DeleteTags />} />
       </Routes>
       <Footer />
     </>
