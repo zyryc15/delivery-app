@@ -3,21 +3,21 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import noImage from "../../assets/images/noimage.png";
 
-export const EditCategory = () => {
+export const EditTags = () => {
   const { id } = useParams();
   const [file, setFile] = useState(null);
   const [image, setImage] = useState(null);
   const navigate = useNavigate();
 
-  const [categoryTitle, setCategoryTitle] = useState("");
+  const [tagTitle, setTagTitle] = useState("");
   const [retrievedImage, setRetrievedImage] = useState({});
 
   //   fetching the data
   const fetchData = () => {
     axios
-      .get(`http://localhost:8000/api/categories/${id}`)
+      .get(`http://localhost:8000/api/tags/${id}`)
       .then((response) => {
-        setCategoryTitle(response.data.title);
+        setTagTitle(response.data.title);
         setRetrievedImage(response.data.image);
       })
       .catch((error) => {
@@ -62,16 +62,16 @@ export const EditCategory = () => {
       url: "http://res.cloudinary.com/forsale/image/upload/v1698857334/gzu38k4e2jfgo7jgyubh.png",
     };
 
-    const categoryData = {
-      title: categoryTitle,
+    const tagData = {
+      title: tagTitle,
       image: image || retrievedImage || noImage,
     };
 
     axios
-      .patch(`http://localhost:8000/api/categories/edit/${id}`, categoryData)
+      .patch(`http://localhost:8000/api/tags/edit/${id}`, tagData)
       .then(() => {
-        console.log("Category has been updated.");
-        navigate("/categories");
+        console.log("Tags has been updated.");
+        navigate("/tags");
       })
       .catch((error) => {
         console.error("An error occurred:", error);
@@ -82,7 +82,7 @@ export const EditCategory = () => {
     <div className="flex flex-col items-center justify-center">
       <div>
         <h1 className="text-xl font-semibold text-[#07074D] my-4 pt-4">
-          Update Category
+          Update Tags
         </h1>
       </div>
       <div className="mx-auto w-full max-w-[550px] rounded-lg bg-white border border-solid border-slate-200">
@@ -100,8 +100,8 @@ export const EditCategory = () => {
               id="title"
               placeholder="Category name..."
               className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-orange-500 focus:shadow-md"
-              value={categoryTitle}
-              onChange={(e) => setCategoryTitle(e.target.value)}
+              value={tagTitle}
+              onChange={(e) => setTagTitle(e.target.value)}
             />
           </div>
 

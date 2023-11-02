@@ -8,21 +8,18 @@ export const CardCategory = ({ category }) => {
         <div>
           <a href="#" className="flex flex-col items-center justify-center">
             <img
-              className="w-32 rounded-lg"
-              src={category.picture}
-              alt={category.name}
+              className="w-32 h-32 rounded-lg object-cover object-center"
+              src={category.image.url}
+              alt={category.title}
             />
           </a>
         </div>
         <a href="#">
           <h5 className="my-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-            {category.name}
+            {category.title}
           </h5>
         </a>
-        <p className="text-justify my-3 font-normal text-gray-700 dark:text-gray-400">
-          In the new era of technology we look in the future with certainty and
-          pride for our life.
-        </p>
+
         <Button type="button" text="Explore Menu" />
       </div>
     </div>

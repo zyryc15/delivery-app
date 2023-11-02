@@ -1,38 +1,28 @@
-import React, { useEffect, useState } from "react";
-import { CardCategoryRow } from "../../components/CardCategoryRow";
+import React, { useState } from "react";
+import { TagsCard } from "../../components/TagsCard";
 import axios from "axios";
 import { Link } from "react-router-dom";
-
-export const Categories = () => {
-  const [categoryList, SetCategoryList] = useState([]);
-
-  useEffect(() => {
+export const Tags = () => {
+  const [tagLists, setTagLists] = useState([]);
+  useState(() => {
     axios
-      .get("http://localhost:8000/api/categories")
+      .get("http://localhost:8000/api/tags")
       .then((response) => {
-        SetCategoryList(response.data);
+        setTagLists(response.data);
       })
       .catch((error) => {
         console.log(error);
       });
-  });
+  }, []);
   return (
-    <>
-      <div className="flex justify-center pt-8 pb-4 text-2xl font-bold">
-        <h1>Categories</h1>
+    <div className="flex flex-col justify-center items-center w-full">
+      <div className="mt-8 mb-4 font-bold text-2xl">
+        <h1>Tag Lists</h1>
       </div>
-      <div className="w-full flex justify-center">
-        <div className="w-[720px] flex flex-col">
-          <div className="w-full flex">
-            <div className="w-1/2 bg-gray-200 p-2 text-center">
-              Category Name
-            </div>
-            <div className="w-1/2 bg-gray-200 p-2 text-center">Actions</div>
-          </div>
-          {categoryList.map((category, _id) => (
-            <CardCategoryRow key={_id} category={category} />
-          ))}
-        </div>
+      <div className="w-72 md:w-[480px] lg:w-[600px] rounded-lg border border-solid border-slate-200">
+        {tagLists.map((tagList) => (
+          <TagsCard key={tagList._id} tagList={tagList} />
+        ))}
       </div>
       <div className="flex justify-center py-8 mt-2">
         <div className="flex justify-between gap-8">
@@ -54,15 +44,13 @@ export const Categories = () => {
                 d="M7 16l-4-4m0 0l4-4m-4 4h18"
               ></path>
             </svg>
-            <span className="ml-1 font-bold text-lg text-orange-500">Back</span>
+            <span className="ml-1 font-medium text-orange-500">Back</span>
           </Link>
           <Link
-            to="/category/create"
+            to="/tag/create"
             className="inline-flex items-center border  border-orange-500 px-3 py-1.5 rounded-md text-indigo-500 hover:bg-indigo-50"
           >
-            <span className="mr-1 font-bold text-lg text-orange-500">
-              Create
-            </span>
+            <span className="mr-1 font-medium text-orange-500">Create</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -80,6 +68,6 @@ export const Categories = () => {
           </Link>
         </div>
       </div>
-    </>
+    </div>
   );
 };

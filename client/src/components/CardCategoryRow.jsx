@@ -10,7 +10,7 @@ export const CardCategoryRow = ({ category }) => {
             <img
               src={category.image?.url}
               alt={category.title}
-              className="object-cover w-full h-full"
+              className="object-cover w-full h-full rounded-full"
             />
           </div>
           <div className="px-6 py-4 font-semibold text-gray-900 dark:text-white">
