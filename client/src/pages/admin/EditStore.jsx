@@ -1,7 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "../../components/Button";
+import { useParams, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export const EditStore = () => {
+  const { id } = useParams();
+  const navigate = useNavigate();
+
+  const [storeData, setStoreData] = useState("");
+  const [file, setFile] = useState(null);
+
+  const fetchStoreData = () => {
+    axios
+      .get(`http://localhost:8000/api/stores/${id}`)
+      .then((response) => {
+        setStoreData(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <div className="flex items-center justify-center p-12">
       <div className="mx-auto w-full max-w-[550px] bg-white">
@@ -104,7 +122,7 @@ export const EditStore = () => {
           </div>
 
           <div className="flex justify-center">
-            <Button text="Save" type="button" />
+            <Button text="UPDATE" type="button" />
           </div>
         </form>
       </div>
