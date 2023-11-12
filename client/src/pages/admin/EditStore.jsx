@@ -8,6 +8,10 @@ export const EditStore = () => {
   const navigate = useNavigate();
 
   const [storeData, setStoreData] = useState("");
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [retrievedImage, setRetrievedImage] = useState({});
+  const [address, setAddress] = useState("");
   const [file, setFile] = useState(null);
 
   const fetchStoreData = () => {
